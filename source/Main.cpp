@@ -29,11 +29,21 @@ int run() {
     string input;
 
     while (true) {
+        // Get input
         cout << "  > ";
-
         getline(cin, input);
-        vector<string> args = StringUtils::split(input, ' ');
+
+        // Split input into its arguments 'git commit -m   "lorem ipsum" ' -> ["git", "commit", "-m", ""lorem ipsum""].
+        vector<string> args = StringUtils::split(StringUtils::toLower(input), ' ');
+
+        // cout << "args: ";
+        // for (const std::string_view &s: args) {
+            // cout << s << ", ";
+        // }
+        // cout << endl;
+
         // TODO: CommandExecutor automatically handle these
+        // cout << "args[0]: " << args[0] << endl;
         if (args[0] == "stop") break;
         if (args[0] == "run") {
             STri::StrongholdTriangulator stri("Stronghold Triangulator");
@@ -41,7 +51,6 @@ int run() {
             int code = stri.run();
             cout << endl << "[" << StringUtils::time() << "] [INFO] : Stronghold Triangular finished with exit code " << code << "." << endl;
         }
-        cin.ignore(); // Flushing prevents the getline() from being skipped after next iteration.
     }
     return 0;
 }

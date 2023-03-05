@@ -15,6 +15,13 @@ public:
     ~StringUtils() = delete;
 
     /**
+     * Converts a std::string s to all lowercase.
+     * @param s String.
+     * @return Evaluation.
+     */
+    static std::string toLower(const std::string &s);
+
+    /**
      * Splits a string into an array of strings separate a char.
      * (e.g.) string s = "Hello World!", char separate = ' ' -> split(s) = ["Hello", "World!"].
      * If the string had multiple spaces in a row, they are all excluded: s = "Hello   world!"

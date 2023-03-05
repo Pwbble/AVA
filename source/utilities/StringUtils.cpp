@@ -9,6 +9,14 @@ using std::string;
 using std::vector;
 using std::to_string;
 
+string StringUtils::toLower(const std::string &s) {
+    string eval = s;
+    for (int i = 0; i < s.size(); i++) {
+        eval[i] = tolower(s[i]);
+    }
+    return eval;
+}
+
 vector<string> StringUtils::split(const string &s, const char &separate) {
 
     vector<string> result;
